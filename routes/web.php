@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +18,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/hello', function () {
-    return view('hello', ['name' => 'Azri']);
+Route::get('/hello/{name}', function (Request $request) {
+    $name = $request->input('name');
+    return view('hello', ['name' => $name]);
 });
