@@ -19,8 +19,7 @@ Route::get('/', function () {
 });
 
 Route::get('/hello/{name}', function (Request $request) {
-    $all = $request->all();
-    // $name = $request->input('name');
-    var_dump($all);
+    $name = $request->route('name');
+    echo $name;
     return view('hello', ['name' => 'test']);
 });
